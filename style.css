@@ -32,17 +32,19 @@ body {
     width: 90vw;
     height: 90vh;
     border-radius: 1rem;
-    padding: 1rem;
-    transition: all 0.5s ease-in-out;
+    padding: 2rem;
+    transition: all 0.2s ease-out;
 
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr repeat(3, 1fr);
     grid-template-areas:
-    'dash admin news'
-    'dash projects news'
-    'dash projects trend'
-    'dash projects trend';
+    'admin'
+    'projects'
+    'trend'
+    'news'
+    'dash';
 }
 
 .container > * {
@@ -52,6 +54,15 @@ body {
 .dash {
     background-color: slateblue;
     grid-area: dash;
+
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.dash > * {
+    border: 1px solid black;
+    border-radius: 1rem;
 }
 
 .admin {
@@ -72,4 +83,24 @@ body {
 .trend {
     background-color:deeppink;
     grid-area: trend;
+}
+
+
+@media (min-width: 900px) {
+    .container {
+        gap: 1rem;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+        'dash admin news'
+        'dash projects news'
+        'dash projects trend'
+        'dash projects trend';
+    }
+
+    .dash {
+        gap: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 4fr 2fr;
+    }
 }
