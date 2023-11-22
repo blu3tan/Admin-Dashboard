@@ -59,9 +59,14 @@ li {
     line-height: 2.1;
 }
 
-h2.logo-text {
+h2.text {
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+h2.text.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .container {
@@ -88,13 +93,12 @@ h2.logo-text {
 }
 
 .dash {
-    overflow: hidden;
     color: var(--sections-color);
     background-color: var(--accent-color);
     grid-area: dash;
 
     display: grid;
-    gap: 0.5rem;
+    gap: 2rem;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 4fr 2fr;
 }
@@ -104,19 +108,21 @@ h2.logo-text {
     grid-template-columns: 1fr;
 }
 
-.dash > * {
+/* .dash > * {
     border: 1px solid black;
     border-radius: 1rem;
-}
+} */
 
 
 .dash-item {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0 1rem;
     gap: 1rem;
 }
-.logo-text {
+.text {
+    position: absolute;
     visibility: hidden;
 }
 
@@ -202,12 +208,14 @@ h2.logo-text {
     }
 
     .dash-item {
+        position: static;
         display: flex;
         align-items: center;
         padding: 0 1rem;
         gap: 1rem;
     }
-    .logo-text {
+    .text {
+        position: static;
         visibility: visible;
     }
 
