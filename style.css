@@ -65,10 +65,10 @@ h2.text.logo {
 
 .container {
     background-color: var(--container-color);
-    width: 90vw;
-    height: 90vh;
+    width: 100dvw;
+    height: max(90dvh, 750px);
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 0.5rem;
     transition: all 0.2s ease-out;
 
     display: grid;
@@ -117,7 +117,7 @@ h2.text.logo {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 0.6rem;
     gap: 1rem;
 }
 
@@ -172,14 +172,14 @@ h2.text.logo {
 
 .id {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 0.5rem;
     padding: 0.5rem 1rem;
 }
 
 .picture {
 align-self: end;
-max-width: 100px;
+max-width: 80px;
 aspect-ratio: 1/1;
 background-image: url(./Profile.png);
 background-size: cover;
@@ -212,23 +212,20 @@ border-radius: 50%;
     align-items: center;
     border-radius: 0.5rem;
     padding: 0.3rem;
-    min-width: 50px;
+    min-width: 45px;
     aspect-ratio: 1/1;
     cursor: pointer;
+    border: 2px solid transparent;
     color: var(--sections-color);
     background-color: var(--accent-color);
 }
 
 .btn:hover {
     color: var(--accent-color);
-    border: solid 2px var(--accent-color);
+    border: 2px solid var(--accent-color);
     background-color: #fff;
     transition: all 0.3s linear;
 }
-
-/* .btn .material-symbols-rounded {
-    color: var(--sections-color);
-} */
 
 .date {
     justify-self: center;
@@ -297,10 +294,17 @@ border-radius: 50%;
     border-radius: 1rem;
 }
 
+@media (min-width: 390px) {
+    .dash-item {
+        padding: 0 1rem;
+    }
+}
 
 @media (min-width: 1100px) {
     .container {
+        width: 90vw;
         gap: 1rem;
+        padding: 2rem;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-rows: repeat(4, 1fr);
         grid-template-areas:
@@ -322,6 +326,7 @@ border-radius: 50%;
         position: static;
         display: flex;
         align-items: center;
+        padding: 0 1rem;
         gap: 1rem;
         border-radius: 1rem;
     }
@@ -336,13 +341,18 @@ border-radius: 50%;
     }
 
     .id {
-        grid-template-columns: 1fr 2fr 4fr;;
+        grid-template-columns: 1fr 2fr 4fr;
+        gap: 1rem;
     }
 
     .id-info .welcome {
         justify-self:start;
         align-self: center;
     }
+
+    .picture {
+        max-width: 100px;
+        }
 
 
     .progress {
