@@ -48,7 +48,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--body-color);
+    background-color: var(--container-color);
 }
 
 h2.text {
@@ -172,25 +172,77 @@ h2.text.logo {
 
 .id {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 0.5rem;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
     padding: 0.5rem 1rem;
-}
-.id > * {
-    border: 1px solid black;
 }
 
 .picture {
-align-self: center;
+align-self: end;
 max-width: 100px;
 aspect-ratio: 1/1;
-background-color: black;
+background-image: url(./Profile.png);
+background-size: cover;
 border-radius: 50%;
 }
-/* .admin > * {
-    border: 1px solid black;
-    border-radius: 1rem;
+
+.id-info,
+.extra {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.id-info .welcome {
+    justify-self:start;
+    align-self: center;
+}
+
+.welcome span {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.buttons {
+    display: flex;
+    justify-content:flex-start;
+    gap: 0.5rem;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    min-width: 50px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    color: var(--sections-color);
+    background-color: var(--accent-color);
+}
+
+.btn:hover {
+    color: var(--accent-color);
+    border: solid 2px var(--accent-color);
+    background-color: #fff;
+    transition: all 0.3s linear;
+}
+
+/* .btn .material-symbols-rounded {
+    color: var(--sections-color);
 } */
+
+.date {
+    justify-self: center;
+    align-self: center;
+}
+
+.current {
+    font-size: 1.3rem;
+}
+
+.extra {
+    position: absolute;
+    visibility: hidden;
+}
 
 
 
@@ -246,7 +298,7 @@ border-radius: 50%;
 }
 
 
-@media (min-width: 950px) {
+@media (min-width: 1100px) {
     .container {
         gap: 1rem;
         grid-template-columns: 1fr 3fr 1fr;
@@ -270,7 +322,6 @@ border-radius: 50%;
         position: static;
         display: flex;
         align-items: center;
-        /* padding: 0 1rem; */
         gap: 1rem;
         border-radius: 1rem;
     }
@@ -285,7 +336,43 @@ border-radius: 50%;
     }
 
     .id {
-        grid-template-columns: 1fr 5fr;;
+        grid-template-columns: 1fr 2fr 4fr;;
+    }
+
+    .id-info .welcome {
+        justify-self:start;
+        align-self: center;
+    }
+
+
+    .progress {
+        display: flex;
+        justify-content: flex-start;
+        padding: 2px;
+        height: 30px;
+        border-radius: 2rem;
+        border: 1px solid var(--text-color);
+    }
+
+    .progress-value {
+        width: 0%;
+        border-radius: 2rem;
+        background-color: var(--accent-color);
+        animation: load 2s normal forwards;
+    }
+
+    @keyframes load {
+        0% { width: 0; }
+        100% { width: 30%; }
+    }
+
+    .extra {
+        position: static;
+        visibility: visible;
+    }
+
+    .experience p {
+        font-size: 1.1rem;
     }
 
     .projects {
