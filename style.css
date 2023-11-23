@@ -19,13 +19,6 @@
     /* cursor: pointer; */
 }
 
-/* .material-symbols-rounded:hover {
-    color: hsl(0, 0%, 100%);
-    transform: scale(1.2, 1.2);
-    transition: all 0.2s linear;
-
-} */
-
 /* General reset */
 
 *, *::before, *::after {
@@ -68,6 +61,8 @@ h2.text.logo {
     font-weight: 600;
 }
 
+/* Main container */
+
 .container {
     background-color: var(--container-color);
     width: 90vw;
@@ -90,6 +85,8 @@ h2.text.logo {
 .container > * {
     border-radius: 1rem;
 }
+
+/* dashboard side menu  */
 
 .dash {
     color: var(--sections-color);
@@ -123,24 +120,79 @@ h2.text.logo {
     padding: 0 1rem;
     gap: 1rem;
 }
+
 .text {
     position: absolute;
     visibility: hidden;
 }
+
+/* Admin section */
 
 .admin {
     background-color: var(--sections-color);
     grid-area: admin;
 
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: 2fr 1fr;
     gap: 0.5rem;
 }
 
-.admin > * {
-    border: 1px solid black;
+.search {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.admin-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-item input {
+    width: 100%;
+    outline: none;
+    color: var(--text-color);
+    border: none;
+    padding: 0.3rem 1rem;
     border-radius: 1rem;
 }
+.admin-item input::placeholder {
+    color: var(--divider-color);
+}
+.admin-item input::-webkit-search-cancel-button {
+    filter: grayscale(100%) opacity(30%);
+}
+
+.admin-item .material-symbols-rounded {
+    color: var(--accent-color);
+}
+
+.id {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+.id > * {
+    border: 1px solid black;
+}
+
+.picture {
+align-self: center;
+max-width: 100px;
+aspect-ratio: 1/1;
+background-color: black;
+border-radius: 50%;
+}
+/* .admin > * {
+    border: 1px solid black;
+    border-radius: 1rem;
+} */
+
+
 
 .projects {
     background-color: var(--sections-color);
@@ -193,7 +245,8 @@ h2.text.logo {
     border-radius: 1rem;
 }
 
-@media (min-width: 900px) {
+
+@media (min-width: 950px) {
     .container {
         gap: 1rem;
         grid-template-columns: 1fr 3fr 1fr;
@@ -229,6 +282,10 @@ h2.text.logo {
     .text {
         position: static;
         visibility: visible;
+    }
+
+    .id {
+        grid-template-columns: 1fr 5fr;;
     }
 
     .projects {
