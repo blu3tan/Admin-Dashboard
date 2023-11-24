@@ -62,6 +62,8 @@ body {
     background-color: var(--container-color);
 }
 
+/* Text style  */
+
 h2.text {
     font-size: 1.1rem;
     font-weight: 600;
@@ -86,6 +88,16 @@ span.sales {
 
 .card_btn span {
     font-size: 0.7rem;
+}
+
+span.gainers {
+    font-size: 1.1rem;
+}
+
+span.percentage {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #34CA5B;
 }
 
 
@@ -281,7 +293,6 @@ border-radius: 0.5rem;
 }
 
 .projects > * {
-    /* border: 1px solid var(--container-color); */
     border-radius: 1rem;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
@@ -358,6 +369,16 @@ border-radius: 0.5rem;
     border-radius: 2rem;
     background-color: var(--accent-color);
     animation: load 2s normal forwards;
+}
+
+/* Gainers card */
+
+.card_body.gainers_body {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 2fr 2fr;
+    gap: 0.2rem;
 }
 
 .news {
@@ -507,6 +528,16 @@ border-radius: 0.5rem;
     .card_h2 + span {
         color: var(--accent-color);
         font-size: 1.5rem;
+    }
+
+    span.gainers {
+        font-size: 1.3rem;
+    }
+    
+    span.percentage {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #34CA5B;
     }
 
     .news,
