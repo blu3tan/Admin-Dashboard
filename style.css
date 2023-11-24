@@ -3,11 +3,14 @@
 :root {
     --body-bg: hsl(0, 0%, 93%);
     --container-color: hsl(0, 0%, 19%);
-    --sections-color: hsl(0, 0%, 93%);
+    /* --sections-color: hsl(0, 0%, 93%); */
+    --sections-color: hsl(0, 0%, 100%);
     --accent-color: hsl(229, 91%, 58%);
     --divider-color: hsl(0, 0%, 78%);
     --text-color: hsl(0, 0%, 13%);
-    --shadow-color: 229deg 79% 25%;
+    --admin-color: hsl(0, 0%, 80%);
+    --news-color: hsl(338, 73%, 55%);
+    --trend-color: hsl(268, 82%, 59%);
 }
 
 @keyframes load {
@@ -27,7 +30,6 @@
     'GRAD' 0,
     'opsz' 30;
     font-size: 2rem;
-    /* cursor: pointer; */
 }
 
 /* General reset */
@@ -101,7 +103,7 @@ span.percentage {
 }
 
 
-/* Main container */
+/* ************************ Main container section ************************ */
 
 .container {
     background-color: var(--container-color);
@@ -112,21 +114,21 @@ span.percentage {
     transition: all 0.2s ease-out;
 
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 2fr repeat(2, 1fr);
     grid-template-areas:
     'dash admin'
     'dash projects'
-    'dash trend'
-    'dash news';
+    'dash news'
+    'dash trend';
 }
 
 .container > * {
     border-radius: 1rem;
 }
 
-/* dashboard side menu  */
+/* ************************ Dash section ************************ */
 
 .dash {
     color: var(--sections-color);
@@ -166,10 +168,10 @@ span.percentage {
     visibility: hidden;
 }
 
-/* Admin section */
+/* ************************ Admin section ************************ */
 
 .admin {
-    background-color: var(--sections-color);
+    background-color: var(--admin-color);
     grid-area: admin;
 
     display: grid;
@@ -195,6 +197,7 @@ span.percentage {
     width: 100%;
     outline: none;
     color: var(--text-color);
+    /* border: solid 1px var(--text-color); */
     border: none;
     padding: 0.3rem 1rem;
     border-radius: 1rem;
@@ -278,12 +281,11 @@ border-radius: 0.5rem;
     visibility: hidden;
 }
 
-/* Projects section */
+/* ************************ Projects section ************************ */
 
 .projects {
-    background-color: var(--sections-color);
+    background-color: var(--container-color);
     overflow: scroll;
-    padding: 0.5rem;
     grid-area: projects;
 
     display: grid;
@@ -293,8 +295,8 @@ border-radius: 0.5rem;
 }
 
 .projects > * {
+    background-color: var(--sections-color);
     border-radius: 1rem;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .card {
@@ -338,7 +340,7 @@ border-radius: 0.5rem;
     background-color: var(--accent-color);
 }
 
-/* balance card */
+/*********** Balance card ***********/
 
 .balance_body {
     display: grid;
@@ -371,7 +373,7 @@ border-radius: 0.5rem;
     animation: load 2s normal forwards;
 }
 
-/* Gainers card */
+/*********** Gainers card ***********/
 
 .card_body.gainers_body {
     display: grid;
@@ -381,10 +383,11 @@ border-radius: 0.5rem;
     gap: 0.2rem;
 }
 
+/* ************************ News section ************************ */
+
 .news {
-    background-color: var(--sections-color);
+    background-color: var(--container-color);
     overflow: scroll;
-    padding: 0.5rem;
     grid-area: news;
 
     display: grid;
@@ -394,14 +397,15 @@ border-radius: 0.5rem;
 }
 
 .news > * {
-    border: 1px solid black;
+    background-color: var(--accent-color);
     border-radius: 1rem;
 }
 
+/* ************************ Trend section ************************ */
+
 .trend {
-    background-color: var(--sections-color);
+    background-color: var(--container-color);
     overflow: scroll;
-    padding: 0.5rem;
     grid-area: trend;
 
     display: grid;
@@ -411,9 +415,11 @@ border-radius: 0.5rem;
 }
 
 .trend > * {
-    border: 1px solid black;
+    background-color: var(--trend-color);
     border-radius: 1rem;
 }
+
+/* ************************ Queries section ************************ */
 
 @media (min-width: 390px) {
     .dash-item {
@@ -432,8 +438,8 @@ border-radius: 0.5rem;
     .container {
         width: 90vw;
         height: max(90dvh, 750px);
-        gap: 1rem;
-        padding: 2rem;
+        gap: 0.5rem;
+        /* padding: 2rem; */
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-rows: repeat(4, 1fr);
         grid-template-areas:
@@ -481,10 +487,14 @@ border-radius: 0.5rem;
 
     .picture {
         max-width: 100px;
-        }
+    }
 
+    .card_h2 ~ .material-symbols-rounded {
+        font-size: 2rem;
+    }
 
     .progress {
+        background-color: #fff;
         display: flex;
         justify-content: flex-start;
         padding: 2px;
