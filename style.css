@@ -7,6 +7,17 @@
     --accent-color: hsl(229, 91%, 58%);
     --divider-color: hsl(0, 0%, 78%);
     --text-color: hsl(0, 0%, 13%);
+    --shadow-color: 229deg 79% 25%;
+}
+
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 30%; }
+}
+
+@keyframes load_btc {
+    0% { width: 0; }
+    100% { width: 80%; }
 }
 
 .material-symbols-rounded {
@@ -44,7 +55,7 @@ input, button, textarea, select {
 /* Styling */
 
 body {
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,17 +67,34 @@ h2.text {
     font-weight: 600;
 }
 
+h2.card_h2,
+.welcome span {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
 h2.text.logo {
     font-size: 1.5rem;
     font-weight: 600;
 }
+
+span.sales {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-right: 1rem;
+}
+
+.card_btn span {
+    font-size: 0.7rem;
+}
+
 
 /* Main container */
 
 .container {
     background-color: var(--container-color);
     width: 100dvw;
-    height: max(90dvh, 750px);
+    height: max(90dvh, 600px);
     border-radius: 1rem;
     padding: 0.5rem;
     transition: all 0.2s ease-out;
@@ -183,7 +211,7 @@ max-width: 80px;
 aspect-ratio: 1/1;
 background-image: url(./Profile.png);
 background-size: cover;
-border-radius: 50%;
+border-radius: 0.5rem;
 }
 
 .id-info,
@@ -197,10 +225,6 @@ border-radius: 50%;
     align-self: center;
 }
 
-.welcome span {
-    font-size: 1.3rem;
-    font-weight: 400;
-}
 .buttons {
     display: flex;
     justify-content:flex-start;
@@ -213,14 +237,15 @@ border-radius: 50%;
     border-radius: 0.5rem;
     padding: 0.3rem;
     min-width: 45px;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     cursor: pointer;
     border: 2px solid transparent;
     color: var(--sections-color);
     background-color: var(--accent-color);
 }
 
-.btn:hover {
+.btn:hover,
+.card_btn:hover {
     color: var(--accent-color);
     border: 2px solid var(--accent-color);
     background-color: #fff;
@@ -241,7 +266,7 @@ border-radius: 50%;
     visibility: hidden;
 }
 
-
+/* Projects section */
 
 .projects {
     background-color: var(--sections-color);
@@ -256,8 +281,83 @@ border-radius: 50%;
 }
 
 .projects > * {
-    border: 1px solid black;
+    /* border: 1px solid var(--container-color); */
     border-radius: 1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.card_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card_body {
+    align-self: center;
+}
+
+.card_action {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card_h2 + span {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.card_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 30px;
+    width: 100px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: var(--accent-color);
+}
+
+/* balance card */
+
+.balance_body {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 0.3rem;
+}
+
+.balance,
+.balance_usd {
+    display: flex;
+    align-self: center;
+    justify-content: flex-start;
+    padding: 2px;
+    height: 15px;
+    border-radius: 2rem;
+    border: 1px solid var(--text-color);
+}
+
+.balance_value {
+    width: 0%;
+    border-radius: 2rem;
+    background-color: var(--accent-color);
+    animation: load_btc 2s normal forwards;
+}
+
+.balance_value_usd {
+    width: 0%;
+    border-radius: 2rem;
+    background-color: var(--accent-color);
+    animation: load 2s normal forwards;
 }
 
 .news {
@@ -301,8 +401,16 @@ border-radius: 50%;
 }
 
 @media (min-width: 1100px) {
+
+    h2.card_h2,
+    .welcome span {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
     .container {
         width: 90vw;
+        height: max(90dvh, 750px);
         gap: 1rem;
         padding: 2rem;
         grid-template-columns: 1fr 3fr 1fr;
@@ -371,11 +479,6 @@ border-radius: 50%;
         animation: load 2s normal forwards;
     }
 
-    @keyframes load {
-        0% { width: 0; }
-        100% { width: 30%; }
-    }
-
     .extra {
         position: static;
         visibility: visible;
@@ -388,6 +491,22 @@ border-radius: 50%;
     .projects {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-auto-rows: minmax(45%, 1fr);
+    }
+
+    .card_btn {
+        height: max(30px, 4vh);
+        width: 120px;
+        padding: 0.5rem;
+        background-color: var(--accent-color);
+    }
+
+    .card_btn span {
+        font-size: 1rem;
+    }
+
+    .card_h2 + span {
+        color: var(--accent-color);
+        font-size: 1.5rem;
     }
 
     .news,
