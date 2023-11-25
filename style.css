@@ -1,16 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700&family=Prompt:ital,wght@0,200;0,400;0,500;0,700;1,200&display=swap');
 
 :root {
-    --body-bg: hsl(0, 0%, 93%);
     --container-color: hsl(0, 0%, 19%);
-    /* --sections-color: hsl(0, 0%, 93%); */
     --sections-color: hsl(0, 0%, 100%);
     --accent-color: hsl(229, 91%, 58%);
     --divider-color: hsl(0, 0%, 78%);
     --text-color: hsl(0, 0%, 13%);
     --admin-color: hsl(0, 0%, 80%);
-    --news-color: #464EE8;
-    --trend-color: hsl(0, 0%, 37%);
 }
 
 @keyframes load {
@@ -54,7 +50,7 @@ input, button, textarea, select {
     font: inherit;
 }
 
-/* Styling */
+/* General Styling */
 
 body {
     height: 100dvh;
@@ -217,7 +213,6 @@ span.trend_user {
     width: 100%;
     outline: none;
     color: var(--text-color);
-    /* border: solid 1px var(--text-color); */
     border: none;
     padding: 0.3rem 1rem;
     border-radius: 1rem;
@@ -271,7 +266,7 @@ border-radius: 0.5rem;
     align-items: center;
     border-radius: 0.5rem;
     padding: 0.3rem;
-    min-width: 45px;
+    width: 50px;
     aspect-ratio: 1 / 1;
     cursor: pointer;
     border: 2px solid transparent;
@@ -457,7 +452,7 @@ border-radius: 0.5rem;
 /* ************************ Trend section ************************ */
 
 .trend {
-    background-color: var(--container-color);
+    background-color: var(--admin-color);
     overflow-y: scroll;
     grid-area: trend;
 
@@ -629,12 +624,6 @@ border-radius: 0.5rem;
 
     span.gainers {
         font-size: 1.3rem;
-    }
-    
-    span.percentage {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: #34CA5B;
     }
 
     .news {
