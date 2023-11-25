@@ -9,8 +9,8 @@
     --divider-color: hsl(0, 0%, 78%);
     --text-color: hsl(0, 0%, 13%);
     --admin-color: hsl(0, 0%, 80%);
-    --news-color: hsl(338, 73%, 55%);
-    --trend-color: hsl(268, 82%, 59%);
+    --news-color: #464EE8;
+    --trend-color: hsl(0, 0%, 37%);
 }
 
 @keyframes load {
@@ -62,6 +62,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--container-color);
+    color: var(--text-color);
 }
 
 /* Text style  */
@@ -73,8 +74,8 @@ h2.text {
 
 h2.card_h2,
 .welcome span {
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 h2.text.logo {
@@ -103,9 +104,22 @@ span.gainers {
 }
 
 span.percentage {
-    font-size: 1.3rem;
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-weight: 600;
     color: #34CA5B;
+}
+
+span.down_percentage {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #FF3B34;
+}
+
+
+span.trend_user {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-color);
 }
 
 
@@ -230,7 +244,7 @@ span.percentage {
 align-self: end;
 max-width: 80px;
 aspect-ratio: 1/1;
-background-image: url(./Profile.png);
+background-image: url(./images/Profile.png);
 background-size: cover;
 border-radius: 0.5rem;
 }
@@ -419,8 +433,6 @@ border-radius: 0.5rem;
     padding: 0.8rem;
 }
 .card__news_head {
-    /* overflow: hidden; */
-    /* white-space: nowrap;     */
     text-overflow: ellipsis;
 
     padding-bottom: 0.5rem;
@@ -434,7 +446,7 @@ border-radius: 0.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
 
 .card__news_action {
@@ -446,18 +458,51 @@ border-radius: 0.5rem;
 
 .trend {
     background-color: var(--container-color);
-    overflow: scroll;
+    overflow-y: scroll;
     grid-area: trend;
 
     display: grid;
-    gap: 0.5rem;
     grid-template-columns: 1fr;
-    grid-auto-rows: minmax(100%, 1fr);
 }
 
 .trend > * {
-    background-color: var(--trend-color);
+    background-color: var(--sections-color);
     border-radius: 1rem;
+}
+
+.card__trend {
+    align-items: center;
+    display: grid;
+    grid-template-columns: max-content 2fr;
+    gap: 1rem;
+    padding: 0.8rem;
+}
+
+.trend_img {
+    align-self: center;
+    width: 60px;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    border-radius: 0.5rem;
+    border: 3px solid var(--accent-color);
+}
+
+/* ************************ Trend Images section ************************ */
+
+.img_1 {
+    background-image: url(./images/noun-1.png);
+}
+.img_2 {
+    background-image: url(./images/noun-2.png);
+}
+.img_3 {
+    background-image: url(./images/noun-3.png);
+}
+.img_4 {
+    background-image: url(./images/noun-4.png);
+}
+.img_5 {
+    background-image: url(./images/noun-5.png);
 }
 
 /* ************************ Queries section ************************ */
@@ -472,14 +517,14 @@ border-radius: 0.5rem;
 
     h2.card_h2,
     .welcome span {
-    font-size: 1.3rem;
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
     .container {
         width: 90vw;
         height: max(90dvh, 750px);
-        gap: 0.5rem;
+        gap: 1rem;
         /* padding: 2rem; */
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-rows: repeat(4, 1fr);
@@ -561,8 +606,9 @@ border-radius: 0.5rem;
     }
 
     .projects {
+        gap: 1rem;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-auto-rows: minmax(45%, 1fr);
+        grid-auto-rows: minmax(40%, 1fr);
     }
 
     .card_btn {
@@ -591,6 +637,10 @@ border-radius: 0.5rem;
         color: #34CA5B;
     }
 
+    .news {
+        gap: 1rem;
+    }
+
     .card__news > * {
         color: #fff;
     }
@@ -599,7 +649,7 @@ border-radius: 0.5rem;
         display: grid;
         gap: 0.7rem;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 3fr 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
         padding: 0.8rem;
     }
     .card__news_head {
@@ -624,10 +674,16 @@ border-radius: 0.5rem;
     }
 
 
-    .news,
-    .trend {
+    .news {
         grid-template-columns: 1fr;
-        grid-auto-rows: minmax(60%, 1fr);
+        grid-auto-rows: minmax(70%, 1fr);
+    }
+
+    .trend {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
     }
 
     h2.card_news_h2 {
@@ -641,5 +697,34 @@ border-radius: 0.5rem;
         position: static;
     }
 
+    .card__trend {
+        align-self: center;
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 1rem;
+    }
 
+    .trend_img {
+        width: 80px;
+        aspect-ratio: 1/1;
+    }
+
+    .trend_name {
+        display: grid;
+        justify-content: start;
+        
+    }
+
+    span.trend_user {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+}
+
+@media (max-width: 1100px) {
+
+    .card__news_body p {
+        -webkit-line-clamp: 3;
+    }
 }
